@@ -1,0 +1,25 @@
+{{#each this}}
+  <div class='photo-card col-12 col-6 col-sm-4'>
+    <img class='img-fluid rounded' src={{webformatURL}} alt={{tags}} loading='lazy' />
+    <div class='info d-inline-flex justify-content-center'>
+      <p class='p-1'>
+        <i class='material-icons-round'>thumb_up_off_alt
+        </i>
+        {{likes}}
+      </p>
+      <p class='p-1'>
+        <i class='material-icons-round'>visibility</i>
+        {{views}}
+      </p>
+      <p class='p-1'>
+        <i class='material-icons-round'>comment</i>
+        {{comments}}
+      </p>
+      <p class='p-1'>
+        <i class='material-icons-round'>cloud_download
+        </i>
+        {{downloads}}
+      </p>
+    </div>
+  </div>
+{{/each}}

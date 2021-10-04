@@ -1,27 +1,39 @@
-.example {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.5;
-  background-color: #fff;
-  color: #424242;
-  max-width: 960px;
-  padding: 16px;
+//Стили для файла с примером Html-фрагмента
+html {
+  box-sizing: border-box;
 }
 
-.example code {
-  font-family: monospace;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: #009688;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 2px;
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
 }
 
-.example .background {
-  height: 240px;
-  // Путь к изображениям из SASS-файла всегда такой, как из папки css
-  background-image: url('../images/demo.jpg');
-  background-size: cover;
-  background-position: center;
+//Стили для обнуления верхних отступов у элементов
+h1,
+h2,
+h3,
+p{
+  margin: 0;
+}
+
+//Обнуление бызовых стилей у списков
+ol,
+ul{
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+//Обнуление бызовых стилей у ссылок
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+//Корректное отображение картинок
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
