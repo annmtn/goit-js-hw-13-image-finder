@@ -25,6 +25,7 @@ const fetchImg = () => {
   imageService.fetchImg().then(hits => {
     if (hits.length === 0) {
         Notify.warning('Ошибка ввода')
+        button.hidden()
         return
     }
 
@@ -42,6 +43,7 @@ const fetchImg = () => {
 
 const searchImg = event => {
   event.preventDefault();
+  imageService.resetPage();
   clearImgGallery();
 
   const userRequest = event.currentTarget.elements.query.value.trim();
