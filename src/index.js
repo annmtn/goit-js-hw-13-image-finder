@@ -22,14 +22,20 @@ const button = new BtnService({
 const fetchImg = () => {
   button.disable();
 
-  imageService.fetchImg().then(hits => {
-    if (hits.length === 0) {
-        Notify.warning('Ошибка ввода')
-        button.hidden()
-        return
+  imageService.fetchImg().then(data => {
+    imageService.getPerPage();
+
+    if (data.hits.length > 0) {
+      Notify.success(`Найдено ${data.total} картинок`);
     }
 
-    imgGallery.insertAdjacentHTML('beforeend', imageCard(hits));
+    if (data.hits.length === 0) {
+      Notify.warning('Картинки не найдены');
+      button.hidden();
+      return;
+    }
+
+    imgGallery.insertAdjacentHTML('beforeend', imageCard(data.hits));
 
     button.show();
     button.enable();
@@ -38,6 +44,11 @@ const fetchImg = () => {
       behavior: 'smooth',
       block: 'end',
     });
+
+    if (data.hits.length <= data.total % imageService.getPerPage()) {
+      Notify.success(`Больше картинок нет`);
+      button.hidden();
+    }
   });
 };
 
